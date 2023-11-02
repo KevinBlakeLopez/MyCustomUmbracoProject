@@ -1,0 +1,99 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PharmaceuticalProduct>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.ProductName - Pharmaceutical Product Details</title>
+    <!-- Add your stylesheet references here -->
+</head>
+<body>
+    <div class="pharmaceutical-product-details">
+        <h1>@Model.ProductName</h1>
+
+        <img src="@Model.ProductImage.Url()" alt="Product Image" />
+
+        
+        @if (!string.IsNullOrEmpty(Model.Strength)) {
+            <p><strong>Strength:</strong> @Model.Strength</p>
+        }
+
+        @if (Model.DosageForm != null) {
+            <p><strong>Dosage Form:</strong> @Model.DosageForm</p>
+        }
+
+        @if (Model.Size > 0) {
+            <p><strong>Size:</strong> @Model.Size</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Ndc)) {
+            <p><strong>NDC:</strong> @Model.Ndc</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Upc)) {
+            <p><strong>UPC:</strong> @Model.Upc</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Otcrx)) {
+            <p><strong>Over the Counter or Prescription:</strong> @Model.Otcrx</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.ReferenceBrand)) {
+            <p><strong>Reference Brand:</strong> @Model.ReferenceBrand</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Shape)) {
+            <p><strong>Shape:</strong> @Model.Shape</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.Color)) {
+            <p><strong>Color:</strong> @Model.Color</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.ImprintMarkings)) {
+            <p><strong>ImprintMarkings:</strong> @Model.ImprintMarkings</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.IndicationsForUse)) {
+            <p><strong>IndicationsForUse:</strong> @Model.IndicationsForUse</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.InactiveIngredient)) {
+            <p><strong>Inactive Ingredient:</strong> @Model.InactiveIngredient</p>
+        }
+
+        
+            <p><strong>Contains Gluten:</strong> @Model.ContainsGluten</p>
+        
+            <p><strong>Contains Lactose:</strong> @Model.ContainsLactose</p>
+        
+            <p><strong>Contains Soy:</strong> @Model.ContainsSoy</p>
+
+            <p><strong>Cencora:</strong> @Model.Cencora</p>
+        
+            <p><strong>McKesson:</strong> @Model.McKesson</p>
+
+            <p><strong>Cardinal:</strong> @Model.Cardinal</p>
+      
+            <p><strong>Morris & Dickson:</strong> @Model.MorrisAndDickson</p>
+        
+        @* To display the Safety Data Sheet link if it exists *@
+        @if (Model.SafetyDataSheet != null) {
+            <p><strong>Safety Data Sheet:</strong> 
+                <a href="@Model.SafetyDataSheet.Url()" target="_blank">Download</a>
+            </p>
+        }
+
+        <!-- Add any additional markup and Razor logic to display the rest of the properties -->
+    </div>
+
+    <!-- Add your scripts here -->
+
+</body>
+</html>

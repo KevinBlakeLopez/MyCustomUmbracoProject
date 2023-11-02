@@ -48,7 +48,6 @@ namespace MyCustomUmbracoProject
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseUmbraco()
                 .WithMiddleware(u =>
                 {
