@@ -67,11 +67,23 @@
         @if (!string.IsNullOrEmpty(Model.InactiveIngredient)) {
             <p><strong>Inactive Ingredient:</strong> @Model.InactiveIngredient</p>
         }
+            <p><strong>Case Dimensions(inches):</strong> @Model.CaseDimensionsInches</p>
+
+            <p><strong>Bottle Size(inches):</strong> @Model.BottleSizeInches</p>
+
+            <p><strong>Bottle Weight(lbs):</strong> @Model.BottleWeightLbs</p>
+
+            <p><strong>Product Shelf Life:</strong> @Model.ProductShelfLife</p>
+            
             <p><strong>Contains Gluten:</strong> @Model.ContainsGluten</p>
         
             <p><strong>Contains Lactose:</strong> @Model.ContainsLactose</p>
         
             <p><strong>Contains Soy:</strong> @Model.ContainsSoy</p>
+
+            <p><strong>Contains Sweetener:</strong> @Model.ContainsSweetener</p>
+
+            <p><strong>Contains Dye:</strong> @Model.ContainsDye</p>
 
             <p><strong>Cencora:</strong> @Model.Cencora</p>
         
@@ -80,6 +92,12 @@
             <p><strong>Cardinal:</strong> @Model.Cardinal</p>
       
             <p><strong>Morris & Dickson:</strong> @Model.MorrisAndDickson</p>
+
+            @if (Model.DailyMed != null) {
+            <p><strong>Daily Med:</strong> 
+                <a href="@Model.DailyMed" target="_blank">Info</a>
+            </p>
+        }
         
         @* To display the Safety Data Sheet link if it exists *@
         @if (Model.SafetyDataSheet != null) {

@@ -1,0 +1,40 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Products>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Products</title>
+    
+</head>
+<body>
+    <header>
+        <h1>All Products</h1>
+    </header>
+    <main>
+        <ul>
+            @foreach (var product in Model.Children)
+            {
+                <li>
+                    <h2>
+						<a href="@product.Url()">@product.Name</a>
+						</h2>
+                    <p>Strength: @product.Value("strength")</p>
+
+                    <p>NDC Number: @product.Value("Ndc")</p>
+                    
+                </li>
+            }
+        </ul>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
