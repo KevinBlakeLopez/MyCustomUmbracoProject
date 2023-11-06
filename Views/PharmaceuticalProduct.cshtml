@@ -2,106 +2,147 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PharmaceuticalProduct>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>@Model.ProductName - Pharmaceutical Product Details</title> 
+    <title>@Model.ProductName - Pharmaceutical Product Details</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
 </head>
+
 <body>
-    <div class="pharmaceutical-product-details">
-        <h1>@Model.ProductName</h1>
+    <div class="jumbotron text-center jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-1">@Model.ProductName</h1>
+        </div>
+    </div>
 
-        <img src="@Model.ProductImage.Url()" alt="Product Image" />
+    <div class="flex justify-center my-10">
+    
+        <div class="pharmaceutical-product-details flex flex-col justify-center">
+            <div>
+                <p><a href="/products">Products </a> → @Model.ProductName</p>
+            </div>
+                @if (Model.ProductImage != null) {
+                    <img class="mt-4" width="200" src="@Model.ProductImage.Url()" alt="Product Image" />
+                }
 
-        
-        @if (!string.IsNullOrEmpty(Model.Strength)) {
-            <p><strong>Strength:</strong> @Model.Strength</p>
-        }
+                <h5 class="text-3xl mt-4">General Information</h5>
+                @if (!string.IsNullOrEmpty(Model.Strength))
+                {
+                    <p class="mt-2"><strong>Strength:</strong> @Model.Strength</p>
+                }
 
-        @if (Model.DosageForm != null) {
-            <p><strong>Dosage Form:</strong> @Model.DosageForm</p>
-        }
+                @if (Model.DosageForm != null)
+                {
+                    <p class="mt-2"><strong>Dosage Form:</strong> @Model.DosageForm</p>
+                }
 
-        @if (Model.Size > 0) {
-            <p><strong>Size:</strong> @Model.Size</p>
-        }
+                @if (Model.Size > 0)
+                {
+                    <p class="mt-2"><strong>Size:</strong> @Model.Size</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.Ndc)) {
-            <p><strong>NDC:</strong> @Model.Ndc</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.Ndc))
+                {
+                    <p class="mt-2"><strong>NDC:</strong> @Model.Ndc</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.Upc)) {
-            <p><strong>UPC:</strong> @Model.Upc</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.Upc))
+                {
+                    <p class="mt-2"><strong>UPC:</strong> @Model.Upc</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.Otcrx)) {
-            <p><strong>Over the Counter or Prescription:</strong> @Model.Otcrx</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.Otcrx))
+                {
+                    <p class="mt-2"><strong>Over the Counter or Prescription:</strong> @Model.Otcrx</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.ReferenceBrand)) {
-            <p><strong>Reference Brand:</strong> @Model.ReferenceBrand</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.ReferenceBrand))
+                {
+                    <p class="mt-2"><strong>Reference Brand:</strong> @Model.ReferenceBrand</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.Shape)) {
-            <p><strong>Shape:</strong> @Model.Shape</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.Shape))
+                {
+                    <p class="mt-2"><strong>Shape:</strong> @Model.Shape</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.Color)) {
-            <p><strong>Color:</strong> @Model.Color</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.Color))
+                {
+                    <p class="mt-2"><strong>Color:</strong> @Model.Color</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.ImprintMarkings)) {
-            <p><strong>ImprintMarkings:</strong> @Model.ImprintMarkings</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.ImprintMarkings))
+                {
+                    <p class="mt-2"><strong>Imprint Markings:</strong> @Model.ImprintMarkings</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.IndicationsForUse)) {
-            <p><strong>IndicationsForUse:</strong> @Model.IndicationsForUse</p>
-        }
+                @if (!string.IsNullOrEmpty(Model.IndicationsForUse))
+                {
+                    <p class="mt-2"><strong>Indications For Use:</strong> @Model.IndicationsForUse</p>
+                }
 
-        @if (!string.IsNullOrEmpty(Model.InactiveIngredient)) {
-            <p><strong>Inactive Ingredient:</strong> @Model.InactiveIngredient</p>
-        }
-            <p><strong>Case Dimensions(inches):</strong> @Model.CaseDimensionsInches</p>
+                
+                <h5 class="text-3xl mt-4">Packaging Information</h5>
+                <p class="mt-2"><strong>Case Quantity: </strong> @Model.CaseQuantity</p>
+                
+                <p class="mt-2"><strong>Case Dimensions(inches):</strong> @Model.CaseDimensionsInches</p>
 
-            <p><strong>Bottle Size(inches):</strong> @Model.BottleSizeInches</p>
+                <p class="mt-2"><strong>Bottle Size(inches):</strong> @Model.BottleSizeInches</p>
 
-            <p><strong>Bottle Weight(lbs):</strong> @Model.BottleWeightLbs</p>
+                <p class="mt-2"><strong>Bottle Weight(lbs):</strong> @Model.BottleWeightLbs</p>
 
-            <p><strong>Product Shelf Life:</strong> @Model.ProductShelfLife</p>
-            
-            <p><strong>Contains Gluten:</strong> @Model.ContainsGluten</p>
-        
-            <p><strong>Contains Lactose:</strong> @Model.ContainsLactose</p>
-        
-            <p><strong>Contains Soy:</strong> @Model.ContainsSoy</p>
+                <p class="mt-2"><strong>Product Shelf Life:</strong> @Model.ProductShelfLife</p>
 
-            <p><strong>Contains Sweetener:</strong> @Model.ContainsSweetener</p>
+                <h5 class="text-3xl mt-4">Ingredients</h5>
 
-            <p><strong>Contains Dye:</strong> @Model.ContainsDye</p>
+                @if (!string.IsNullOrEmpty(Model.InactiveIngredient))
+                {
+                    <p class="mt-2"><strong>Inactive Ingredient:</strong> @Model.InactiveIngredient</p>
+                }
 
-            <p><strong>Cencora:</strong> @Model.Cencora</p>
-        
-            <p><strong>McKesson:</strong> @Model.McKesson</p>
+                <p class="mt-2"><strong>Contains Gluten:</strong> @Model.ContainsGluten</p>
 
-            <p><strong>Cardinal:</strong> @Model.Cardinal</p>
-      
-            <p><strong>Morris & Dickson:</strong> @Model.MorrisAndDickson</p>
+                <p class="mt-2"><strong>Contains Lactose:</strong> @Model.ContainsLactose</p>
 
-            @if (Model.DailyMed != null) {
-            <p><strong>Daily Med:</strong> 
-                <a href="@Model.DailyMed" target="_blank">Info</a>
-            </p>
-        }
-        
-        @* To display the Safety Data Sheet link if it exists *@
-        @if (Model.SafetyDataSheet != null) {
-            <p><strong>Safety Data Sheet:</strong> 
-                <a href="@Model.SafetyDataSheet.Url()" target="_blank">Download</a>
-            </p>
-        }
+                <p class="mt-2"><strong>Contains Soy:</strong> @Model.ContainsSoy</p>
 
+                <p class="mt-2"><strong>Contains Sweetener:</strong> @Model.ContainsSweetener</p>
+
+                <p class="mt-2"><strong>Contains Dye:</strong> @Model.ContainsDye</p>
+
+                <h5 class="text-3xl mt-4">Wholesale Item Codes</h5>
+
+                <p class="mt-2"><strong>Cencora:</strong> @Model.Cencora</p>
+
+                <p class="mt-2"><strong>McKesson:</strong> @Model.McKesson</p>
+
+                <p class="mt-2"><strong>Cardinal:</strong> @Model.Cardinal</p>
+
+                <p class="mt-2"><strong>Morris & Dickson:</strong> @Model.MorrisAndDickson</p>
+
+                <h5 class="text-3xl mt-4">Documents and Links</h5>
+
+                @if (Model.DailyMed != null)
+                {
+                    <p class="mt-2"><strong>Daily Med:</strong>
+                        <a href="@Model.DailyMed" target="_blank">Info</a>
+                    </p>
+                }
+
+                @* To display the Safety Data Sheet link if it exists *@
+                @if (Model.SafetyDataSheet != null)
+                {
+                    <p class="mt-2"><strong>Safety Data Sheet:</strong>
+                        <a href="@Model.SafetyDataSheet.Url()" target="_blank">Download</a>
+                    </p>
+                }
+        </div>
+    </div>
 </body>
+
 </html>
