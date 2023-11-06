@@ -2,45 +2,15 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.PharmaceuticalProduct>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+	Layout = "Master.cshtml";
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Model.ProductName - Pharmaceutical Product Details</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css" />
-    <!-- Add your stylesheet references here -->
+    <title>@Model.ProductName - Pharmaceutical Product Details</title> 
 </head>
 <body>
-    <!-- Navigation -->
-		<div class="container">
-			<nav class="navbar navbar-expand navbar-light">
-				<a class="navbar-brand font-weight-bold" href="/">UmbracoAscend</a>
-				<!-- Links -->
-				<ul class="navbar-nav">
-					<li class="nav-item">
-					    <a class="nav-link" href="products">Products</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="Contentpage-Advanced.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-					    <a class="nav-link" href="Blog.html">Operations</a>
-                    </li>
-                    <li class="nav-item">
-					    <a class="nav-link" href="Contentpage2.html">Press Releases</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="Contactpage.html">Contact</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
     <div class="pharmaceutical-product-details">
         <h1>@Model.ProductName</h1>
 
@@ -132,11 +102,6 @@
                 <a href="@Model.SafetyDataSheet.Url()" target="_blank">Download</a>
             </p>
         }
-
-        <!-- Add any additional markup and Razor logic to display the rest of the properties -->
-    </div>
-
-    <!-- Add your scripts here -->
 
 </body>
 </html>
